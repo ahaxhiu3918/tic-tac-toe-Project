@@ -1,0 +1,6 @@
+# ignore every file with no extension (Linux executables)
+*
+!*.*
+!*/
+!Makefile
+!LICENSE

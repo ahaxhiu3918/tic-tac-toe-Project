@@ -14,7 +14,8 @@ bool cellAlreadyOccupied(int row, int col, string gameBoard[ROWS][COLS]);
 string getWinner(string gameBoard[ROWS][COLS]);
 bool isBoardFull(string gameBoard[ROWS][COLS]);
 string whoseTurnIsIt(string player);
-
+void printLines(int columns);
+void printNumbers(int columns);
 
 int main()
 {
@@ -34,6 +35,7 @@ void runGame(){
     intializeGameBoard(gameBoard);
     printCurrentBoard(gameBoard);
 
+    /* 
     do{// game loop, runs at least one with do-while loop 
 
         player = whoseTurnIsIt(player);
@@ -49,7 +51,55 @@ void runGame(){
     }while(winner.empty());
 
     cout<<"the winner is "<<winner<<endl;
+    */
 
 }
 
+void intializeGameBoard(string gameBoard[ROWS][COLS]){
+
+    for(int i =0; i<ROWS;i++){
+        for(int j = 0;j<ROWS;j++){
+            gameBoard[i][j] = "."; // point instead of an space 
+        }
+    }
+}
+
+void printCurrentBoard(string gameBoard[ROWS][COLS]){
+
+    // https://stackoverflow.com/questions/48737248/how-do-i-print-a-tic-tac-toe-board-after-the-user-enters-in-the-rows-and-columns
+
+    printNumbers(COLS);
+    printLines(COLS);
+    for(int i = 0; i < ROWS; i++)
+    {
+        cout << " " << i;
+        for(int j = 0; j < COLS; j++)
+        {
+            cout << " | "<<gameBoard[i][j];
+        }
+        cout << " | " << endl;
+        printLines(COLS);
+    }
+    // printNumbers(COLS);
+}
+
+void printLines(int columns)
+{
+    cout << "   ";
+    for(int i = 0; i < columns; i++)
+    {
+        cout << " ---";
+    }
+    cout << endl;
+}
+
+void printNumbers(int columns)
+{
+    cout << "   ";
+    for(int i = 0; i < columns; i++)
+    {
+        cout << "  " << i << " ";
+    }
+    cout << endl;
+}
 
