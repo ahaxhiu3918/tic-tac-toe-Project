@@ -182,11 +182,21 @@ bool isBoardFull(string gameBoard[ROWS][COLS]){
 }
 
 
-string whoseTurnIsIt(string player){
+string firstTurnIsIt(string player){
     string player;
     cout<<"Please enter the first player(either O or X) :";
     cin>>player;
 
 
+}
+
+string whoseTurnIsIt(string player){
+    
+    if (player == "X"){
+        return "O";
+    }
+    else if (player == "O"){
+        return "X";
+    }
 }
 
